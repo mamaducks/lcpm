@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { makeStyles } from "@material-ui/core";
+import { AppBarHeader } from "./AppBar";
+import { Footer } from "./Footer";
+import { Router } from "./Router";
 
-function App() {
+const useStyles = makeStyles({
+  container: {
+    backgroundColor: "#f3f1f2",
+    overflowX:'hidden'
+  },
+  footer: {
+    backgroundColor: "#e6d1dd",
+  },
+});
+
+export function App() {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AppBarHeader />
+      <div className={classes.container}>
+        <Router />
+      </div>
+      <Footer className={classes.footer} />
+    </>
   );
 }
-
-export default App;
